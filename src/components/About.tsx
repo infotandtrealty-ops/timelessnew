@@ -1,6 +1,6 @@
 const About = () => {
   const highlights = [
-    { number: "5k+", label: "Graduates" },
+    { number: "5000k+", label: "Graduates" },
     { number: "11+", label: "Years of Experience" },
     { number: "20k+", label: "Treatments Conducted" }
   ];
