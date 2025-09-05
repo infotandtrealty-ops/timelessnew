@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ServicesOverview from "@/components/ServicesOverview";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import FeaturedClients from "@/components/FeaturedClients";
@@ -10,6 +9,8 @@ import TeamMember from "@/components/TeamMember";
 import BeforeAfterResults from "@/components/BeforeAfterResults";
 import FAQ from "@/components/FAQ";
 import BlogSection from "@/components/BlogSection";
+import ServicesSection from "@/components/ServicesSection";
+
 
 const Index = () => {
   return (
@@ -17,7 +18,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <ServicesOverview />
+        <ServicesSection />
         <AboutSection />
         <TeamMember />
         <FeaturedClients />
