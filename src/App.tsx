@@ -6,6 +6,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+// Pages
+import Blog from "./pages/Blog";
+
+
+
 
 const queryClient = new QueryClient();
 
@@ -15,14 +20,30 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
+
+      <Routes>
+          {/* Home Page */}
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+          {/* Blog Page */}
+          <Route path="/blog" element={<Blog />} />
+
+          {/* Catch All (404) */}
           <Route path="*" element={<NotFound />} />
+
         </Routes>
+
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
 
 export default App;
+
+
+
+
+
+
+
+

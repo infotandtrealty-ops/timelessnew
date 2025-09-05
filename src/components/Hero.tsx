@@ -21,7 +21,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl leading-relaxed">
-       
+
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
