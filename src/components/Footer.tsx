@@ -7,7 +7,7 @@ const Footer = () => {
         {/* Logo + Info */}
         <div>
           <img
-       src="src/assets/logo-1.png"
+       src="/logo-1.png"
        alt="Timeless Aesthetics Logo"
             className="h-12 mb-4"
           />

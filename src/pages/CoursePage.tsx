@@ -943,7 +943,7 @@ const CoursePage = () => {
             <Header />
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-luxury-dark to-luxury-gold text-white py-20">
+      <div className="bg-gradient-to-r from-luxury-dark to-luxury-gold text-white py-20"> // isma changes karna hai 
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="secondary" className="mb-4">

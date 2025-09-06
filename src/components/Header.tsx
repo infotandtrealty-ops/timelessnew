@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, Phone, X, ChevronDown, ChevronRight } from "lucide-react";
 
 
+
 interface SubmenuItem {
   label: string;
   link?: string;
@@ -196,7 +197,7 @@ const Header = () => {
             <div className="flex items-center">
               <Link to="/">
                 <img
-                  src="src/assets/logo-1.png"
+                  src="/logo-1.png"
                   alt="Timeless Aesthetics Logo"
                   className="h-12 w-auto"
                 />
