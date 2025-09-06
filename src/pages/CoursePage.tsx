@@ -52,6 +52,7 @@ const CoursePage = () => {
         level: "Advanced",
         category: "Permanent Makeup",
         price: "₹45,000",
+        image: "/images/courses-banner.jpeg",
         features: [
           "Hands-on practical training",
           "Latest equipment and techniques",
@@ -84,6 +85,7 @@ const CoursePage = () => {
         level: "Advanced",
         category: "Permanent Makeup",
         price: "₹55,000",
+        image: "/images/courses-banner.jpeg",
         features: [
           "Advanced SMP techniques",
           "Hair loss pattern analysis",
@@ -116,6 +118,7 @@ const CoursePage = () => {
         level: "Professional",
         category: "Permanent Makeup",
         price: "₹85,000",
+        image: "/images/courses-banner.jpeg",
         features: [
           "Complete permanent makeup training",
           "All techniques covered",
@@ -149,6 +152,7 @@ const CoursePage = () => {
         level: "Intermediate",
         category: "Permanent Makeup",
         price: "₹35,000",
+        image: "/images/courses-banner.jpeg",
         features: [
           "Lip anatomy and color theory",
           "Shape correction techniques",
@@ -181,6 +185,7 @@ const CoursePage = () => {
         level: "Beginner",
         category: "Permanent Makeup",
         price: "₹25,000",
+        image: "/images/courses-banner.jpeg",
         features: [
           "Brow lifting techniques",
           "Lash lift procedures",
@@ -213,6 +218,7 @@ const CoursePage = () => {
         level: "Beginner",
         category: "Permanent Makeup",
         price: "₹40,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Basic SMP techniques",
           "Hair loss understanding",
@@ -245,6 +251,7 @@ const CoursePage = () => {
         level: "Intermediate",
         category: "Permanent Makeup",
         price: "₹50,000",
+        image: "/assets/courses/permanent-cosmetology.jpg", // 👈 yeh add kar
         features: [
           "Laser technology understanding",
           "Skin type analysis",
@@ -277,6 +284,7 @@ const CoursePage = () => {
         level: "Intermediate",
         category: "Permanent Makeup",
         price: "₹45,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Skin analysis techniques",
           "Treatment protocols",
@@ -310,6 +318,7 @@ const CoursePage = () => {
         level: "Advanced",
         category: "Cosmetology",
         price: "₹35,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Advanced peel techniques",
           "Skin type analysis",
@@ -342,6 +351,7 @@ const CoursePage = () => {
         level: "Professional",
         category: "Cosmetology",
         price: "₹1,20,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Complete cosmetology training",
           "Advanced treatment techniques",
@@ -375,6 +385,7 @@ const CoursePage = () => {
         level: "Professional",
         category: "Cosmetology",
         price: "₹75,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Professional skin care training",
           "Facial treatment techniques",
@@ -406,6 +417,7 @@ const CoursePage = () => {
         level: "Intermediate",
         category: "Cosmetology",
         price: "₹30,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "HydraFacial technology training",
           "Medicated treatment protocols",
@@ -437,6 +449,7 @@ const CoursePage = () => {
         level: "Beginner",
         category: "Cosmetology",
         price: "₹25,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Chemical peel basics",
           "Safety protocols",
@@ -470,6 +483,7 @@ const CoursePage = () => {
         level: "Master's",
         category: "Facial Aesthetics",
         price: "₹2,50,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Complete facial aesthetics training",
           "Advanced injection techniques",
@@ -502,6 +516,7 @@ const CoursePage = () => {
         level: "Advanced",
         category: "Facial Aesthetics",
         price: "₹60,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Advanced lipolytic techniques",
           "Anatomy and safety protocols",
@@ -533,6 +548,7 @@ const CoursePage = () => {
         level: "Advanced",
         category: "Facial Aesthetics",
         price: "₹45,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Non-surgical nose correction",
           "Advanced filler techniques",
@@ -564,6 +580,7 @@ const CoursePage = () => {
         level: "Advanced",
         category: "Facial Aesthetics",
         price: "₹50,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Advanced scar treatment techniques",
           "Multiple treatment modalities",
@@ -595,6 +612,7 @@ const CoursePage = () => {
         level: "Advanced",
         category: "Facial Aesthetics",
         price: "₹40,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Plasma pen technology training",
           "Advanced treatment techniques",
@@ -626,6 +644,7 @@ const CoursePage = () => {
         level: "Advanced",
         category: "Facial Aesthetics",
         price: "₹45,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Under-eye anatomy and aging",
           "Advanced treatment techniques",
@@ -657,6 +676,7 @@ const CoursePage = () => {
         level: "Advanced",
         category: "Facial Aesthetics",
         price: "₹40,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Advanced lip filler techniques",
           "Anatomy and safety protocols",
@@ -688,6 +708,7 @@ const CoursePage = () => {
         level: "Post Graduate",
         category: "Facial Aesthetics",
         price: "₹1,80,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Complete facial aesthetics training",
           "Advanced injection techniques",
@@ -720,6 +741,7 @@ const CoursePage = () => {
         level: "Intermediate",
         category: "Facial Aesthetics",
         price: "₹45,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Basic lipolytic techniques",
           "Anatomy and safety",
@@ -752,6 +774,7 @@ const CoursePage = () => {
         level: "Fellowship",
         category: "Fellowship Courses",
         price: "₹2,00,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Complete permanent makeup training",
           "Advanced cosmetology techniques",
@@ -783,6 +806,7 @@ const CoursePage = () => {
         level: "Fellowship",
         category: "Fellowship Courses",
         price: "₹3,50,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Complete aesthetic training",
           "All three specialties covered",
@@ -814,6 +838,7 @@ const CoursePage = () => {
         level: "Fellowship",
         category: "Fellowship Courses",
         price: "₹2,80,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Advanced facial aesthetics training",
           "All injection techniques",
@@ -845,6 +870,7 @@ const CoursePage = () => {
         level: "Fellowship",
         category: "Fellowship Courses",
         price: "₹3,00,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Complete permanent makeup training",
           "Advanced cosmetology",
@@ -876,6 +902,7 @@ const CoursePage = () => {
         level: "Fellowship",
         category: "Fellowship Courses",
         price: "₹4,50,000",
+        image: "/assets/courses/permanent-cosmetology.jpg",
         features: [
           "Complete aesthetic training",
           "All specialties covered",
@@ -943,7 +970,12 @@ const CoursePage = () => {
             <Header />
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-luxury-dark to-luxury-gold text-white py-20">
+      <div 
+        className="relative text-white py-20 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${courseData.image})`
+        }}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="secondary" className="mb-4">
