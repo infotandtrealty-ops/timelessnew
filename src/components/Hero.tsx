@@ -8,20 +8,15 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image (Mobile) */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden" // 👈 only mobile
-        style={{ backgroundImage: `url(${heroImageMobile})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-luxury-dark/70 via-luxury-dark/50 to-transparent" />
-      </div>
+  className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
+  style={{ backgroundImage: `url(${heroImageMobile})` }}
+></div>
 
       {/* Background Image (Desktop) */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block" // 👈 only desktop
-        style={{ backgroundImage: `url(${heroImageDesktop})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-luxury-dark/60 via-luxury-dark/40 to-transparent" />
-      </div>
-
+  className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
+  style={{ backgroundImage: `url(${heroImageDesktop})` }}
+></div>
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20">
         <div className="max-w-4xl">
