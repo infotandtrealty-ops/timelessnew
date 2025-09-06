@@ -4,6 +4,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Users, Award, BookOpen, Star, CheckCircle } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+
+
+
 
 interface CourseData {
   title: string;
@@ -933,7 +939,9 @@ const CoursePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50  flex flex-col">
+            <Header />
+
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-luxury-dark to-luxury-gold text-white py-20">
         <div className="container mx-auto px-4">
@@ -1090,6 +1098,10 @@ const CoursePage = () => {
           </div>
         </div>
       </div>
+    
+      <Footer />
+
+
     </div>
   );
 };
