@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, Phone, X, ChevronDown, ChevronRight } from "lucide-react";
+
 
 interface SubmenuItem {
   label: string;
@@ -22,6 +24,7 @@ const Header = () => {
     { label: "Home", link: "/" },
     {
       label: "Courses",
+      link: "/courses",
       submenu: [
         {
           label: "Permanent Makeup",
@@ -191,26 +194,33 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <a href="/">
+              <Link to="/">
                 <img
                   src="src/assets/logo-1.png"
                   alt="Timeless Aesthetics Logo"
                   className="h-12 w-auto"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               {navigationItems.map((item) => (
                 <div key={item.label} className="relative group">
-                  <a
-                    href={item.link || "#"}
-                    className="text-luxury-dark hover:text-luxury-gold font-medium transition-colors duration-300 flex items-center gap-1"
-                  >
-                    {item.label}
-                    {item.submenu && <ChevronDown className="h-4 w-4" />}
-                  </a>
+                  {item.link ? (
+                    <Link
+                      to={item.link}
+                      className="text-luxury-dark hover:text-luxury-gold font-medium transition-colors duration-300 flex items-center gap-1"
+                    >
+                      {item.label}
+                      {item.submenu && <ChevronDown className="h-4 w-4" />}
+                    </Link>
+                  ) : (
+                    <span className="text-luxury-dark hover:text-luxury-gold font-medium transition-colors duration-300 flex items-center gap-1 cursor-pointer">
+                      {item.label}
+                      {item.submenu && <ChevronDown className="h-4 w-4" />}
+                    </span>
+                  )}
                   
                   {/* First Level Dropdown */}
                   {item.submenu && (
@@ -218,26 +228,33 @@ const Header = () => {
                       <div className="py-2">
                         {item.submenu.map((subItem) => (
                           <div key={subItem.label} className="relative group/sub">
-                            <a
-                              href={subItem.link || "#"}
-                              className="block px-4 py-2 text-luxury-dark hover:text-luxury-gold hover:bg-gray-50 transition-colors duration-200 flex items-center justify-between"
-                            >
-                              {subItem.label}
-                              {subItem.submenu && <ChevronRight className="h-4 w-4" />}
-                            </a>
+                            {subItem.link ? (
+                              <Link
+                                to={subItem.link}
+                                className="block px-4 py-2 text-luxury-dark hover:text-luxury-gold hover:bg-gray-50 transition-colors duration-200 flex items-center justify-between"
+                              >
+                                {subItem.label}
+                                {subItem.submenu && <ChevronRight className="h-4 w-4" />}
+                              </Link>
+                            ) : (
+                              <span className="block px-4 py-2 text-luxury-dark hover:text-luxury-gold hover:bg-gray-50 transition-colors duration-200 flex items-center justify-between cursor-pointer">
+                                {subItem.label}
+                                {subItem.submenu && <ChevronRight className="h-4 w-4" />}
+                              </span>
+                            )}
                             
                             {/* Second Level Dropdown */}
                             {subItem.submenu && (
                               <div className="absolute top-0 left-full ml-2 w-80 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 ease-in-out transform scale-95 group-hover/sub:scale-100 z-50">
                                 <div className="py-2">
                                   {subItem.submenu.map((subSubItem) => (
-                                    <a
+                                    <Link
                                       key={subSubItem.label}
-                                      href={subSubItem.link || "#"}
+                                      to={subSubItem.link || "#"}
                                       className="block px-4 py-2 text-luxury-dark hover:text-luxury-gold hover:bg-gray-50 transition-colors duration-200 text-sm"
                                     >
                                       {subSubItem.label}
-                                    </a>
+                                    </Link>
                                   ))}
                                 </div>
                               </div>
@@ -326,26 +343,26 @@ const Header = () => {
                                   {expandedMobileItems.includes(`${item.label}-${subItem.label}`) && (
                                     <div className="ml-4 mt-1 space-y-1">
                                       {subItem.submenu.map((subSubItem) => (
-                                        <a
+                                        <Link
                                           key={subSubItem.label}
-                                          href={subSubItem.link || "#"}
+                                          to={subSubItem.link || "#"}
                                           className="block text-luxury-dark hover:text-luxury-gold transition-colors duration-300 py-1 text-xs"
                                           onClick={closeMobileMenu}
                                         >
                                           {subSubItem.label}
-                                        </a>
+                                        </Link>
                                       ))}
                                     </div>
                                   )}
                                 </div>
                               ) : (
-                                <a
-                                  href={subItem.link || "#"}
+                                <Link
+                                  to={subItem.link || "#"}
                                   className="block text-luxury-dark hover:text-luxury-gold transition-colors duration-300 py-1 text-sm"
                                   onClick={closeMobileMenu}
                                 >
                                   {subItem.label}
-                                </a>
+                                </Link>
                               )}
                             </div>
                           ))}
@@ -353,13 +370,13 @@ const Header = () => {
                       )}
                     </div>
                   ) : (
-                    <a
-                      href={item.link || "#"}
+                    <Link
+                      to={item.link || "#"}
                       className="block text-luxury-dark hover:text-luxury-gold font-medium transition-colors duration-300 py-2"
                       onClick={closeMobileMenu}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   )}
                 </div>
               ))}
