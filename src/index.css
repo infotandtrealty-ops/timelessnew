@@ -125,3 +125,10 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+
+
+/* Prevent unwanted horizontal scroll */
+html, body {
+  @apply overflow-x-hidden;
+}

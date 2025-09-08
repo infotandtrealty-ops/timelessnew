@@ -34,10 +34,11 @@ const ServiceCategoryPage = () => {
   useEffect(() => {
     // Extract service path from URL
     const pathSegments = location.pathname.split('/').filter(Boolean);
-    const servicePath = pathSegments.slice(1).join('/'); // Remove 'services' from path
+    // For routes like /services/cosmetology or /services/facial-aesthetics
+    const serviceKey = (pathSegments[1] || '').toLowerCase();
     
-    // Load service data based on path
-    loadServiceData(servicePath);
+    // Load service data based on normalized key
+    loadServiceData(serviceKey);
   }, [location.pathname]);
 
   const loadServiceData = (servicePath: string) => {

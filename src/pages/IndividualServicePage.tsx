@@ -617,6 +617,7 @@ const IndividualServicePage = () => {
           }
         ]
       },
+      
       "permanent-makeup/stretch-mark-camouflage": {
         title: "Stretch Mark Camouflage",
         description: "Conceal stretch marks with our professional camouflage service. Using advanced techniques, we help reduce the appearance of stretch marks and restore your skin's confidence.",
@@ -745,7 +746,75 @@ const IndividualServicePage = () => {
     if (service) {
       setServiceData(service);
     } else {
-      setServiceData(null);
+      // Fallback placeholder for any service route not yet defined
+      const [categoryKey, serviceKey] = servicePath.split('/');
+      if (categoryKey && serviceKey) {
+        const toTitleCase = (text: string) => text
+          .split('-')
+          .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+          .join(' ');
+        const categoryMap: Record<string, string> = {
+          'permanent-makeup': 'Permanent Makeup',
+          'cosmetology': 'Cosmetology',
+          'facial-aesthetics': 'Facial Aesthetics',
+          'dentistry': 'Dentistry'
+        };
+        const title = toTitleCase(serviceKey);
+        const category = categoryMap[categoryKey] || 'Services';
+        const placeholder: ServiceData = {
+          title,
+          description: `Details about ${title} in ${category}. This is placeholder content to be replaced with real copy.`,
+          duration: "60 Minutes",
+          category,
+          subcategory: "General",
+          price: "₹—",
+          image: "/images/courses-banner.jpeg",
+          features: [
+            "Professional care",
+            "Safe and hygienic",
+            "Personalized plan",
+            "Modern techniques",
+            "Aftercare guidance",
+            "Expert team"
+          ],
+          benefits: [
+            "Visible improvement",
+            "Confidence boost",
+            "Minimal downtime",
+            "Tailored approach",
+            "Comfort-focused",
+            "Quality results"
+          ],
+          process: [
+            "Consultation and assessment",
+            "Treatment planning",
+            "Procedure",
+            "Soothing and protection",
+            "Aftercare instructions",
+            "Follow-up (if needed)"
+          ],
+          aftercare: [
+            "Follow provided care plan",
+            "Use SPF daily",
+            "Avoid heat/sun for 24-48h",
+            "Hydrate and rest",
+            "Gentle skincare",
+            "Contact clinic for concerns"
+          ],
+          contraindications: [
+            "Pregnancy (some treatments)",
+            "Active infection at site",
+            "Allergy to components",
+            "Bleeding disorders",
+            "Uncontrolled medical conditions",
+            "Recent invasive procedure at site"
+          ],
+          relatedServices: []
+        };
+        setServiceData(placeholder);
+      } else {
+        setServiceData(null);
+      }
     }
     setLoading(false);
   };
@@ -926,7 +995,7 @@ const IndividualServicePage = () => {
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </div> 
 
           {/* Sidebar */}
           <div className="space-y-6">

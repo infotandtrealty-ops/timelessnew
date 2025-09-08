@@ -185,22 +185,26 @@ const ContactPage = () => {
 
           {/* Map Placeholder */}
           <Card>
-            <CardHeader>
-              <CardTitle>Find Us</CardTitle>
-              <CardDescription>
-                Visit our clinics for in-person consultations
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
-                <div className="text-center text-luxury-muted">
-                  <MapPin className="h-12 w-12 mx-auto mb-4" />
-                  <p>Interactive Map</p>
-                  <p className="text-sm">Click to view our locations</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+  <CardHeader>
+    <CardTitle>Find Us</CardTitle>
+    <CardDescription>
+      Visit our clinics for in-person consultations
+    </CardDescription>
+  </CardHeader>
+  <CardContent>
+    <div className="aspect-video rounded-lg overflow-hidden">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28061.596691393206!2d77.097149!3d28.458471!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d232106de6803%3A0x334abceb23079c69!2sTimeless%20Aesthetics!5e0!3m2!1sen!2sin!4v1757321735370!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen={true}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </CardContent>
+</Card>
         </div>
       </div>
 

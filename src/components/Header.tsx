@@ -25,7 +25,6 @@ const Header = () => {
     { label: "Home", link: "/" },
     {
       label: "Courses",
-      link: "/courses",
       submenu: [
         {
           label: "Permanent Makeup",
@@ -157,8 +156,7 @@ const Header = () => {
         { label: "Gallery", link: "/media/gallery" }
       ]
     },
-    { label: "Academy", link: "/academy" },
-    { label: "Contact Us", link: "/contact" },
+
     {
       label: "Our Clinics",
       submenu: [
@@ -174,7 +172,9 @@ const Header = () => {
         { label: "Cosmetology", link: "/shop/cosmetology" },
         { label: "Facial Aesthetics", link: "/shop/facial-aesthetics" }
       ]
-    }
+    },
+    { label: "Academy", link: "/academy" },
+    { label: "Contact Us", link: "/contact" },
   ];
 
   const toggleMobileSubmenu = (itemLabel: string) => {
@@ -280,6 +280,8 @@ const Header = () => {
                                 </div>
                               </div>
                             )}
+
+                            
                           </div>
                         ))}
                       </div>
