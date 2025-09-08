@@ -150,11 +150,31 @@ const Header = () => {
       ],
     
     },
-    { label: "Media", link: "/media" },
+    {
+      label: "Media",
+      submenu: [
+        { label: "Blogs", link: "/media/blogs" },
+        { label: "Gallery", link: "/media/gallery" }
+      ]
+    },
     { label: "Academy", link: "/academy" },
     { label: "Contact Us", link: "/contact" },
-    { label: "Our Clinics", link: "/clinics" },
-    { label: "Shop", link: "/shop" }
+    {
+      label: "Our Clinics",
+      submenu: [
+        { label: "Amritsar", link: "/clinics/amritsar" },
+        { label: "Gurgaon", link: "/clinics/gurgaon" },
+        { label: "Jammu", link: "/clinics/jammu" }
+      ]
+    },
+    {
+      label: "Shop",
+      submenu: [
+        { label: "Permanent Makeup", link: "/shop/permanent-makeup" },
+        { label: "Cosmetology", link: "/shop/cosmetology" },
+        { label: "Facial Aesthetics", link: "/shop/facial-aesthetics" }
+      ]
+    }
   ];
 
   const toggleMobileSubmenu = (itemLabel: string) => {
