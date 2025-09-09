@@ -10,6 +10,16 @@ import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import CoursePage from "./pages/CoursePage";
 import CourseIndex from "./pages/CourseIndex";
+
+import Treatments from "./pages/Treatments";
+
+
+
+
+
+
+
+
 import ServicePage from "./pages/ServicePage";
 import ServiceCategoryPage from "./pages/ServiceCategoryPage";
 import IndividualServicePage from "./pages/IndividualServicePage";
@@ -48,8 +58,17 @@ const App = () => (
 
           {/* Course Pages */}
           <Route path="/courses" element={<CourseIndex />} />
-          <Route path="/courses/*" element={<CoursePage />} />
           
+          <Route path="/courses/*" element={<CoursePage />} />
+           
+        
+          <Route path="/courses" element={<CourseIndex />} />
+
+        
+          <Route path="/treatments" element={<Treatments />} />
+
+
+
           {/* Specific Course Routes */}
           {/* Permanent Makeup Courses */}
           <Route path="/courses/permanent-makeup/masters-eyebrows" element={<CoursePage />} />
