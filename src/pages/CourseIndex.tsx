@@ -7,17 +7,17 @@ const CourseIndex: React.FC = () => {
   const courses = [
     {
       name: "Permanent Makeup",
-      image: "/images/aa.png",
+      image: "/images/goo.jpg",
       link: "/courses/permanent-makeup",
     },
     {
       name: "Facial Aesthetics",
-      image: "/images/bb.png",
+      image: "/images/mm.webp",
       link: "/courses/facial-aesthetics",
     },
     {
       name: "Modern Cosmetology",
-      image: "/images/cc.png",
+      image: "/images/faical.webp",
       link: "/courses/modern-cosmetology",
     },
   ];
