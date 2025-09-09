@@ -1,17 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { BookOpen, Award, Users, Clock } from "lucide-react";
-
-// 👇 Import Header & Footer
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const CourseIndex: React.FC = () => {
-  const courseCategories = [
-    // ... (same as before)
+  const courses = [
+    {
+      name: "Permanent Makeup",
+      image: "/images/aa.png",
+      link: "/courses/permanent-makeup",
+    },
+    {
+      name: "Facial Aesthetics",
+      image: "/images/bb.png",
+      link: "/courses/facial-aesthetics",
+    },
+    {
+      name: "Modern Cosmetology",
+      image: "/images/cc.png",
+      link: "/courses/modern-cosmetology",
+    },
   ];
 
   return (
@@ -19,102 +27,78 @@ const CourseIndex: React.FC = () => {
       {/* Header */}
       <Header />
 
-      {/* Page Content */}
-      <div className="min-h-screen bg-gray-50">
-        {/* Hero Section */}
-        <div className="bg-gradient-to-r from-luxury-dark to-luxury-gold text-white py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Professional Aesthetic Courses
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8">
-                Master the art of aesthetic medicine with our comprehensive training programs
-              </p>
-              <div className="flex flex-wrap justify-center gap-6 text-lg">
-                <div className="flex items-center gap-2">
-                  <BookOpen className="h-5 w-5" />
-                  <span>27+ Courses</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Award className="h-5 w-5" />
-                  <span>Certified Training</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Users className="h-5 w-5" />
-                  <span>Expert Instructors</span>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Banner Section */}
+      <div className="relative h-72 flex items-center justify-center">
+        <img
+          src="/images/our services/000.webp"
+          alt="Timeless Academy Banner"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative text-center text-white z-10">
+          <h1 className="text-5xl font-serif font-bold tracking-wide">
+            Aesthetics Academy
+          </h1>
+          <p className="mt-2 text-sm opacity-90">Home / Aesthetics Academy</p>
+        </div>
+      </div>
+
+      {/* Academy Intro */}
+      <div className="container mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="text-4xl font-serif font-bold text-gray-900 mb-6">
+            Timeless Academy
+          </h2>
+          <p className="text-gray-600 leading-relaxed text-lg">
+            Timeless Aesthetics Academy is a{" "}
+            <span className="font-semibold text-yellow-800">
+              one-of-a-kind training institute
+            </span>{" "}
+            for professional aesthetic courses. Our programs include both{" "}
+            <span className="font-medium">online and in-person</span> modules.
+            Furthermore, we have developed a curriculum in three major segments
+            of the aesthetics industry covering the entirety of current treatment
+            lines available in the world.
+          </p>
+          <h3 className="text-2xl font-semibold text-gray-800 mt-10 mb-3">
+            Our courses include:
+          </h3>
+          <ul className="text-gray-700 space-y-2 text-lg">
+            <li>✨ Permanent Makeup</li>
+            <li>✨ Facial Aesthetics</li>
+            <li>✨ Modern Cosmetology</li>
+          </ul>
         </div>
 
-        {/* Course Categories */}
-        <div className="container mx-auto px-4 py-16">
-          <div className="space-y-16">
-            {courseCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex}>
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-luxury-dark mb-4">
-                    {category.title}
-                  </h2>
-                  <p className="text-xl text-luxury-muted max-w-3xl mx-auto">
-                    {category.description}
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {category.courses.map((course, courseIndex) => (
-                    <Card key={courseIndex} className="hover:shadow-lg transition-shadow duration-300">
-                      <CardHeader>
-                        <CardTitle className="text-lg line-clamp-2">
-                          {course.name}
-                        </CardTitle>
-                        <CardDescription>
-                          <div className="flex items-center gap-4 text-sm">
-                            <div className="flex items-center gap-1">
-                              <Clock className="h-4 w-4" />
-                              <span>{course.duration}</span>
-                            </div>
-                            <Badge variant="secondary" className="text-luxury-gold">
-                              {course.price}
-                            </Badge>
-                          </div>
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Button asChild className="w-full">
-                          <Link to={course.link}>View Course Details</Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+        {/* Course Cards */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+          {courses.map((course, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-500"
+            >
+              {/* Image */}
+              <div className="h-56 w-full overflow-hidden">
+                <img
+                  src={course.image}
+                  alt={course.name}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
               </div>
-            ))}
-          </div>
-
-          {/* Call to Action */}
-          <div className="mt-20 text-center">
-            <Card className="max-w-2xl mx-auto">
-              <CardHeader>
-                <CardTitle className="text-2xl">Ready to Start Your Journey?</CardTitle>
-                <CardDescription>
-                  Join thousands of professionals who have transformed their careers with our courses
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-luxury-gold hover:bg-luxury-gold/90">
-                    Contact Us
-                  </Button>
-                  <Button variant="outline" size="lg">
-                    Download Brochure
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+              {/* Content */}
+              <div className="p-6 text-center">
+                <h4 className="text-xl font-serif font-bold text-gray-900 mb-4 group-hover:text-yellow-700 transition-colors duration-300">
+                  {course.name}
+                </h4>
+                <Link
+                  to={course.link}
+                  className="inline-block bg-gradient-to-r from-yellow-600 to-yellow-800 text-white px-5 py-2 rounded-full text-sm font-medium tracking-wide shadow-md hover:shadow-lg transition-all duration-300"
+                >
+                  Learn More →
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
