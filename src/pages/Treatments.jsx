@@ -7,7 +7,7 @@ const Treatments = () => {
     <>
       {/* Header */}
       <Header />
-
+    
       {/* Hero Banner */}
       <div
         className="relative bg-cover bg-center h-64 flex items-center justify-center"
@@ -82,7 +82,33 @@ const Treatments = () => {
     </div>
   </div>
 
-  {/* Card 3 */}
+    {/* Card 3 */}
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+    <img 
+      src="/images/our services/3.webp" 
+      alt="Cosmetology" 
+      className="w-full h-48 object-cover"
+    />
+    <div className="p-4 text-center">
+      
+      <h3 className="text-xl font-bold mb-2">COSMETOLOGY</h3>
+      <p className="text-sm text-gray-600 mb-4">
+        Cosmetology is the art of beautifying the skin, face and hair to 
+        enhance the physical appearance.
+      </p>
+      <a 
+        href="/cosmetology" 
+        className="inline-block bg-gradient-to-r from-yellow-700 to-yellow-900 text-Black px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition"
+      >
+        Read More
+      </a>
+    </div>
+  </div>
+
+
+
+
+  {/* Card 4 */}
   <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
     <img 
       src="/images/our services/3.webp" 

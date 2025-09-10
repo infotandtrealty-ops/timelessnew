@@ -167,7 +167,7 @@ const App = () => (
           <Route path="/services/dentistry/root-canal" element={<IndividualServicePage />} />
           <Route path="/services/dentistry/tooth-colored-fillings" element={<IndividualServicePage />} />
           <Route path="/services/dentistry/oral-cancer" element={<IndividualServicePage />} />
-
+        
           {/* Media Pages */}
           <Route path="/media/blogs" element={<MediaPage />} />
           <Route path="/media/gallery" element={<MediaPage />} />
