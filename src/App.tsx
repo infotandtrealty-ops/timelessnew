@@ -10,6 +10,10 @@ import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import CoursePage from "./pages/CoursePage";
 import CourseIndex from "./pages/CourseIndex";
+import PermanentMakeupPage from "./pages/PermanentMakeupPage";
+import CosmetologyPage from "./pages/CosmetologyPage";
+import FacialAestheticsPage from "./pages/FacialAestheticsPage";
+import FellowshipCoursesPage from "./pages/FellowshipCoursesPage";
 
 import Treatments from "./pages/Treatments";
 
@@ -58,11 +62,13 @@ const App = () => (
 
           {/* Course Pages */}
           <Route path="/courses" element={<CourseIndex />} />
-          
+          {/* Top-level course category landing pages */}
+          <Route path="/courses/permanent-makeup" element={<PermanentMakeupPage />} />
+          <Route path="/courses/cosmetology" element={<CosmetologyPage />} />
+          <Route path="/courses/facial-aesthetics" element={<FacialAestheticsPage />} />
+          <Route path="/courses/fellowship" element={<FellowshipCoursesPage />} />
+          {/* Fallback for nested specific course items */}
           <Route path="/courses/*" element={<CoursePage />} />
-           
-        
-          <Route path="/courses" element={<CourseIndex />} />
 
         
           <Route path="/treatments" element={<Treatments />} />

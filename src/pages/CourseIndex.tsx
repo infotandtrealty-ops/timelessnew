@@ -13,17 +13,17 @@ const CourseIndex: React.FC = () => {
     {
       name: "Cosmetology",
       image: "/images/mm.webp",
-      link: "/courses/facial-aesthetics",
+      link: "/courses/cosmetology",
     },
     {
       name: "Facial Aesthetics",
       image: "/images/faical.webp",
-      link: "/courses/modern-cosmetology",
+      link: "/courses/facial-aesthetics",
     },
     {
       name: "Fellowship Courses",
       image: "/images/goo.jpg",
-      link: "/courses/permanent-makeup",
+      link: "/courses/fellowship",
     }
   ];
 
