@@ -44,15 +44,15 @@ const courses = [
     link: "/courses/permanent-makeup/cert-scalp",
     description:
       "Specialized training in scalp micropigmentation for baldness and hair thinning.",
-      image: "/images/courses/2.webp",
-    },
+    image: "/images/courses/2.webp",
+  },
   {
     title: "Certificate course in Laser Hair Reduction",
     link: "/courses/permanent-makeup/cert-laser-hair",
     description:
       "Gain expertise in safe and effective laser hair reduction techniques.",
-      image: "/images/courses/2.webp",
-    },
+    image: "/images/courses/2.webp",
+  },
   {
     title: "Certificate Course Skin Technicial",
     link: "/courses/permanent-makeup/cert-skin-tech",
@@ -128,9 +128,9 @@ const PermanentMakeupPage: React.FC = () => {
               <div className="px-6 pb-6">
                 <Link
                   to={course.link}
-                  className="inline-block bg-luxury-dark text-white px-5 py-2 rounded-lg hover:bg-luxury-gold transition"
+                  className="inline-block bg-gradient-to-r from-yellow-600 to-yellow-800 text-white px-5 py-2 rounded-full text-sm font-medium tracking-wide shadow-md hover:shadow-lg transition-all duration-300"
                 >
-                  Learn More
+                  Learn More →
                 </Link>
               </div>
             </div>
