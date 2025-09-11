@@ -26,9 +26,8 @@ exports.signup = async (req, res) => {
     if (existing) return res.status(409).json({ error: "Email already in use" });
 
     const user = await User.create({ name, email, password });
-    const token = signToken(user);
-    res.cookie("token", token, cookieOptions);
-    res.status(201).json({ user: { id: user._id, name: user.name, email: user.email, role: user.role } });
+    // Do NOT auto-login after signup; ask client to login explicitly
+    res.status(201).json({ message: "Signup successful. Please login." });
   } catch (err) {
     res.status(500).json({ error: err.message || "Signup failed" });
   }

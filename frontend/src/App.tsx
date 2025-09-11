@@ -29,6 +29,11 @@ import AdminLeads from "./pages/AdminLeads";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import RequireAuth from "@/components/RequireAuth";
+import ProfilePage from "./pages/account/ProfilePage";
+import OrdersPage from "./pages/account/OrdersPage";
+import CartPage from "./pages/account/CartPage";
+import ChangePasswordPage from "./pages/account/ChangePasswordPage";
+import Logout from "./pages/Logout";
 
 
 
@@ -182,6 +187,13 @@ const App = () => (
           {/* Auth */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/logout" element={<Logout />} />
+
+          {/* Account */}
+          <Route path="/account/profile" element={<ProfilePage />} />
+          <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/account/change-password" element={<ChangePasswordPage />} />
 
           {/* Admin Leads (protected) */}
             <Route path="/admin/leads" element={<AdminLeads />} />

@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, Phone, X, ChevronDown, ChevronRight } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 
 
@@ -208,10 +216,31 @@ const Header = () => {
             <div className="hidden md:flex items-center gap-4">
               <Button variant="luxury-ghost" size="sm">We Are Featured</Button>
               {user ? (
-                <Link to="/account" className="flex items-center gap-2 text-luxury-dark hover:text-luxury-gold">
-                  <img src="/logo-1.png" alt={user.name} className="w-6 h-6 rounded-full object-cover" />
-                  <span className="text-sm">{user.name}</span>
-                </Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button className="flex items-center gap-2 text-luxury-dark hover:text-luxury-gold">
+                      <img src="/logo-1.png" alt={user.name} className="w-8 h-8 rounded-full object-cover border" />
+                      <span className="text-sm">{user.name}</span>
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link to="/account/profile">Profile</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/cart">Add to Cart</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/orders">Orders</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link to="/logout">Logout</Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               ) : (
                 <Link to="/login">
                   <Button variant="luxury" size="sm">Login</Button>

@@ -42,11 +42,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const signup = useCallback(async (name: string, email: string, password: string) => {
-    const data = await apiFetch<{ user: NonNullable<User> }>("/api/auth/signup", {
+    await apiFetch<{ message: string }>("/api/auth/signup", {
       method: "POST",
       body: JSON.stringify({ name, email, password }),
     });
-    setUser(data.user);
+    // Do not set user here; user must login explicitly
   }, []);
 
   const logout = useCallback(async () => {
