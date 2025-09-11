@@ -2,14 +2,22 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 
 dotenv.config();
+
+// Ensure a JWT secret exists to avoid runtime failures during auth
+if (!process.env.JWT_SECRET) {
+  process.env.JWT_SECRET = "development_secret_change_me";
+  console.warn("JWT_SECRET not set. Using a development default. Set JWT_SECRET in .env for production.");
+}
 
 const app = express();
 
 // Middleware
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || true, credentials: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 // MongoDB connection
 const mongoUri = process.env.MONGODB_URI || process.env.MONGO_URI || process.env.DB_URI || "";
@@ -62,6 +70,9 @@ app.get("/api/leads", async (_req, res) => {
     res.status(500).json({ error: err.message || "Failed to fetch leads" });
   }
 });
+
+// Auth routes
+app.use("/api/auth", require("./routes/auth"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

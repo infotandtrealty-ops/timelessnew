@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, Phone, X, ChevronDown, ChevronRight } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 
 
@@ -20,6 +21,7 @@ interface MenuItem {
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedMobileItems, setExpandedMobileItems] = useState<string[]>([]);
+  const { user } = useAuth();
 
   const navigationItems: MenuItem[] = [
     { label: "Home", link: "/" },
@@ -205,7 +207,16 @@ const Header = () => {
             </div>
             <div className="hidden md:flex items-center gap-4">
               <Button variant="luxury-ghost" size="sm">We Are Featured</Button>
-              <Button variant="luxury" size="sm">Login</Button>
+              {user ? (
+                <Link to="/account" className="flex items-center gap-2 text-luxury-dark hover:text-luxury-gold">
+                  <img src="/logo-1.png" alt={user.name} className="w-6 h-6 rounded-full object-cover" />
+                  <span className="text-sm">{user.name}</span>
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <Button variant="luxury" size="sm">Login</Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>

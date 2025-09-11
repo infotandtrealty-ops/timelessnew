@@ -14,16 +14,7 @@ import PermanentMakeupPage from "./pages/PermanentMakeupPage";
 import CosmetologyPage from "./pages/CosmetologyPage";
 import FacialAestheticsPage from "./pages/FacialAestheticsPage";
 import FellowshipCoursesPage from "./pages/FellowshipCoursesPage";
-
 import Treatments from "./pages/Treatments";
-
-
-
-
-
-
-
-
 import ServicePage from "./pages/ServicePage";
 import ServiceCategoryPage from "./pages/ServiceCategoryPage";
 import IndividualServicePage from "./pages/IndividualServicePage";
@@ -35,6 +26,9 @@ import ShopPage from "./pages/ShopPage";
 import DemoRoutes from "./pages/DemoRoutes";
 import TestRoute from "./pages/TestRoute";
 import AdminLeads from "./pages/AdminLeads";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import RequireAuth from "@/components/RequireAuth";
 
 
 
@@ -75,7 +69,7 @@ const App = () => (
           <Route path="/treatments" element={<Treatments />} />
 
         
-
+      
           {/* Specific Course Routes */}
           {/* Permanent Makeup Courses */}
           <Route path="/courses/permanent-makeup/masters-eyebrows" element={<CoursePage />} />
@@ -185,8 +179,21 @@ const App = () => (
           {/* Contact Page */}
           <Route path="/contact" element={<ContactPage />} />
 
-          {/* Admin Leads */}
-          <Route path="/admin/leads" element={<AdminLeads />} />
+          {/* Auth */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+
+          {/* Admin Leads (protected) */}
+            <Route path="/admin/leads" element={<AdminLeads />} />
+
+
+          
+          {/* <Route element={<RequireAuth />}>
+            <Route path="/admin/leads" element={<AdminLeads />} />
+          </Route> */}
+
+
+
 
           {/* Clinics Pages */}
           <Route path="/clinics" element={<ClinicsPage />} />
