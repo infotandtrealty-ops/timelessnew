@@ -1,6 +1,8 @@
 import Header from "../components/Header";   // 👈 apne Header ka path dalna
 import Footer from "../components/Footer";   // 👈 apne Footer ka path dalna
-
+import FAQ from "@/components/FAQ";
+import BlogSection from "@/components/BlogSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
 
 const Treatments = () => {
   return (
@@ -131,6 +133,12 @@ const Treatments = () => {
   </div>
 
 </div>
+ 
+
+
+      <WhyChooseUs />
+      <BlogSection />
+      <FAQ />
 
 
   

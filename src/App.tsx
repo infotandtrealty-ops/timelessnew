@@ -69,11 +69,11 @@ const App = () => (
           <Route path="/courses/fellowship" element={<FellowshipCoursesPage />} />
           {/* Fallback for nested specific course items */}
           <Route path="/courses/*" element={<CoursePage />} />
-
+        
         
           <Route path="/treatments" element={<Treatments />} />
 
-
+        
 
           {/* Specific Course Routes */}
           {/* Permanent Makeup Courses */}
