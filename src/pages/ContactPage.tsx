@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -61,6 +63,43 @@ const ContactPage = () => {
       services: ["Permanent Makeup", "Facial Aesthetics", "Cosmetology", "Dentistry"]
     }
   ];
+
+  const { toast } = useToast();
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id === "service" ? "service" : id]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+    try {
+      const res = await fetch(import.meta.env.VITE_API_BASE_URL ? `${import.meta.env.VITE_API_BASE_URL}/api/leads` : `http://localhost:5000/api/leads`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Failed to submit");
+      toast({ title: "Message sent", description: "We will contact you shortly." });
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", service: "", message: "" });
+    } catch (err: any) {
+      toast({ title: "Submission failed", description: err.message || "Please try again.", variant: "destructive" });
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -128,26 +167,26 @@ const ContactPage = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Enter your first name" />
+                    <Input id="firstName" placeholder="Enter your first name" value={formData.firstName} onChange={handleChange} required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Enter your last name" />
+                    <Input id="lastName" placeholder="Enter your last name" value={formData.lastName} onChange={handleChange} />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="Enter your email" />
+                  <Input id="email" type="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} required />
                 </div>
                 
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone</Label>
-                  <Input id="phone" type="tel" placeholder="Enter your phone number" />
+                  <Input id="phone" type="tel" placeholder="Enter your phone number" value={formData.phone} onChange={handleChange} required />
                 </div>
                 
                 <div className="space-y-2">
@@ -155,6 +194,8 @@ const ContactPage = () => {
                   <select 
                     id="service" 
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-luxury-gold focus:border-transparent"
+                    value={formData.service}
+                    onChange={handleChange}
                   >
                     <option value="">Select a service</option>
                     <option value="permanent-makeup">Permanent Makeup</option>
@@ -172,12 +213,14 @@ const ContactPage = () => {
                     id="message" 
                     placeholder="Tell us about your requirements or questions"
                     rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
                   />
                 </div>
                 
-                <Button type="submit" className="w-full" size="lg">
+                <Button type="submit" className="w-full" size="lg" disabled={submitting}>
                   <Send className="h-4 w-4 mr-2" />
-                  Send Message
+                  {submitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>

@@ -34,6 +34,7 @@ import ClinicsPage from "./pages/ClinicsPage";
 import ShopPage from "./pages/ShopPage";
 import DemoRoutes from "./pages/DemoRoutes";
 import TestRoute from "./pages/TestRoute";
+import AdminLeads from "./pages/AdminLeads";
 
 
 
@@ -183,6 +184,9 @@ const App = () => (
 
           {/* Contact Page */}
           <Route path="/contact" element={<ContactPage />} />
+
+          {/* Admin Leads */}
+          <Route path="/admin/leads" element={<AdminLeads />} />
 
           {/* Clinics Pages */}
           <Route path="/clinics" element={<ClinicsPage />} />
