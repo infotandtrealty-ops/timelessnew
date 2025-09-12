@@ -1,31 +1,28 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Star, Heart, Filter, Search, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
+import { allProducts, ShopProduct } from "@/pages/shopData";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: string;
-  originalPrice?: string;
-  image: string;
-  category: string;
-  rating: number;
-  reviews: number;
-  inStock: boolean;
-  tags: string[];
+interface Product extends ShopProduct {
+  rating?: number;
+  reviews?: number;
+  inStock?: boolean;
+  tags?: string[];
 }
 
 const ShopPage = () => {
   const location = useLocation();
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [products, setProducts] = useState<Product[]>([]);
+  const navigate = useNavigate();
+  const { user } = useAuth();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -44,126 +41,7 @@ const ShopPage = () => {
 
   const loadProducts = (category: string) => {
     setLoading(true);
-    
-    // Sample products data
-    const allProducts: Product[] = [
-      // Permanent Makeup Products
-      {
-        id: 'pm-1',
-        name: 'Professional Microblading Kit',
-        description: 'Complete kit for microblading professionals with all essential tools',
-        price: '₹15,000',
-        originalPrice: '₹18,000',
-        image: '/images/courses-banner.jpeg',
-        category: 'permanent-makeup',
-        rating: 4.8,
-        reviews: 24,
-        inStock: true,
-        tags: ['professional', 'kit', 'microblading']
-      },
-      {
-        id: 'pm-2',
-        name: 'Permanent Makeup Pigments Set',
-        description: 'High-quality pigments for permanent makeup procedures',
-        price: '₹8,500',
-        image: '/images/courses-banner.jpeg',
-        category: 'permanent-makeup',
-        rating: 4.9,
-        reviews: 18,
-        inStock: true,
-        tags: ['pigments', 'colors', 'professional']
-      },
-      {
-        id: 'pm-3',
-        name: 'Aftercare Healing Ointment',
-        description: 'Specialized ointment for post-treatment care and healing',
-        price: '₹2,500',
-        image: '/images/courses-banner.jpeg',
-        category: 'permanent-makeup',
-        rating: 4.7,
-        reviews: 32,
-        inStock: true,
-        tags: ['aftercare', 'healing', 'ointment']
-      },
-      // Cosmetology Products
-      {
-        id: 'cos-1',
-        name: 'HydraFacial Treatment Kit',
-        description: 'Complete HydraFacial treatment kit for professional use',
-        price: '₹25,000',
-        originalPrice: '₹30,000',
-        image: '/images/courses-banner.jpeg',
-        category: 'cosmetology',
-        rating: 4.9,
-        reviews: 15,
-        inStock: true,
-        tags: ['hydrafacial', 'treatment', 'professional']
-      },
-      {
-        id: 'cos-2',
-        name: 'Chemical Peel Solutions Set',
-        description: 'Professional-grade chemical peel solutions for various skin types',
-        price: '₹12,000',
-        image: '/images/courses-banner.jpeg',
-        category: 'cosmetology',
-        rating: 4.8,
-        reviews: 22,
-        inStock: true,
-        tags: ['chemical peel', 'solutions', 'professional']
-      },
-      {
-        id: 'cos-3',
-        name: 'LED Light Therapy Device',
-        description: 'Advanced LED light therapy device for skin rejuvenation',
-        price: '₹45,000',
-        image: '/images/courses-banner.jpeg',
-        category: 'cosmetology',
-        rating: 4.6,
-        reviews: 8,
-        inStock: false,
-        tags: ['LED therapy', 'device', 'rejuvenation']
-      },
-      // Facial Aesthetics Products
-      {
-        id: 'fa-1',
-        name: 'Dermal Filler Training Kit',
-        description: 'Complete training kit for dermal filler procedures',
-        price: '₹35,000',
-        originalPrice: '₹40,000',
-        image: '/images/courses-banner.jpeg',
-        category: 'facial-aesthetics',
-        rating: 4.9,
-        reviews: 12,
-        inStock: true,
-        tags: ['dermal filler', 'training', 'kit']
-      },
-      {
-        id: 'fa-2',
-        name: 'Botox Injection Kit',
-        description: 'Professional Botox injection kit with all necessary components',
-        price: '₹18,000',
-        image: '/images/courses-banner.jpeg',
-        category: 'facial-aesthetics',
-        rating: 4.7,
-        reviews: 19,
-        inStock: true,
-        tags: ['botox', 'injection', 'kit']
-      },
-      {
-        id: 'fa-3',
-        name: 'Thread Lift Materials Set',
-        description: 'High-quality thread lift materials for facial lifting procedures',
-        price: '₹22,000',
-        image: '/images/courses-banner.jpeg',
-        category: 'facial-aesthetics',
-        rating: 4.8,
-        reviews: 14,
-        inStock: true,
-        tags: ['thread lift', 'materials', 'facial lifting']
-      }
-    ];
-
-    let filteredProducts = allProducts;
+    let filteredProducts = allProducts as Product[];
     if (category !== 'all') {
       filteredProducts = allProducts.filter(product => product.category === category);
     }
@@ -173,10 +51,10 @@ const ShopPage = () => {
   };
 
   const categories = [
-    { id: 'all', name: 'All Products', count: 9 },
-    { id: 'permanent-makeup', name: 'Permanent Makeup', count: 3 },
-    { id: 'cosmetology', name: 'Cosmetology', count: 3 },
-    { id: 'facial-aesthetics', name: 'Facial Aesthetics', count: 3 }
+    { id: 'all', name: 'All Products', count: allProducts.length },
+    { id: 'permanent-makeup', name: 'Permanent Makeup', count: allProducts.filter(p=>p.category==='permanent-makeup').length },
+    { id: 'cosmetology', name: 'Cosmetology', count: allProducts.filter(p=>p.category==='cosmetology').length },
+    { id: 'facial-aesthetics', name: 'Facial Aesthetics', count: allProducts.filter(p=>p.category==='facial-aesthetics').length }
   ];
 
   if (loading) {
@@ -325,17 +203,19 @@ const ShopPage = () => {
                     <CardDescription className="line-clamp-2">{product.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="flex items-center">
-                        {[...Array(5)].map((_, i) => (
-                          <Star 
-                            key={i} 
-                            className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-luxury-gold fill-current' : 'text-gray-300'}`} 
-                          />
-                        ))}
+                    {typeof product.rating !== 'undefined' && (
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="flex items-center">
+                          {[...Array(5)].map((_, i) => (
+                            <Star 
+                              key={i} 
+                              className={`h-4 w-4 ${i < Math.floor(product.rating || 0) ? 'text-luxury-gold fill-current' : 'text-gray-300'}`} 
+                            />
+                          ))}
+                        </div>
+                        <span className="text-sm text-luxury-muted">({product.reviews || 0})</span>
                       </div>
-                      <span className="text-sm text-luxury-muted">({product.reviews})</span>
-                    </div>
+                    )}
                     
                     <div className="flex items-center gap-2 mb-4">
                       <span className="text-2xl font-bold text-luxury-gold">{product.price}</span>
@@ -346,13 +226,19 @@ const ShopPage = () => {
                     
                     <div className="flex gap-2">
                       <Button 
-                        className="flex-1" 
-                        disabled={!product.inStock}
+                        className="flex-1"
+                        onClick={() => {
+                          if (!user) {
+                            navigate('/login');
+                            return;
+                          }
+                          navigate(`/shop/product/${product.id}`);
+                        }}
                       >
                         <ShoppingCart className="h-4 w-4 mr-2" />
-                        {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+                        Buy Now
                       </Button>
-                      <Button variant="outline" size="icon">
+                      <Button variant="outline" size="icon" onClick={() => navigate(`/shop/product/${product.id}`)}>
                         <ArrowRight className="h-4 w-4" />
                       </Button>
                     </div>

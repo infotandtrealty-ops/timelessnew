@@ -27,6 +27,8 @@ import DemoRoutes from "./pages/DemoRoutes";
 import TestRoute from "./pages/TestRoute";
 import AdminLeads from "./pages/AdminLeads";
 import Login from "./pages/Login";
+import AboutUs from "./pages/AboutUs";
+import ProductDetail from "./pages/ProductDetail";
 import Signup from "./pages/Signup";
 import RequireAuth from "@/components/RequireAuth";
 import ProfilePage from "./pages/account/ProfilePage";
@@ -59,6 +61,13 @@ const App = () => (
 
           {/* Test Route */}
           <Route path="/test" element={<TestRoute />} />
+
+
+
+        
+
+
+
 
           {/* Course Pages */}
           <Route path="/courses" element={<CourseIndex />} />
@@ -184,6 +193,9 @@ const App = () => (
           {/* Contact Page */}
           <Route path="/contact" element={<ContactPage />} />
 
+          {/* About Us */}
+          <Route path="/about" element={<AboutUs />} />
+
           {/* Auth */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -218,6 +230,7 @@ const App = () => (
           <Route path="/shop/permanent-makeup" element={<ShopPage />} />
           <Route path="/shop/cosmetology" element={<ShopPage />} />
           <Route path="/shop/facial-aesthetics" element={<ShopPage />} />
+          <Route path="/shop/product/:id" element={<ProductDetail />} />
 
           {/* Dynamic Service Pages (Legacy) */}
           <Route path="/services/:slug" element={<ServicePage title="" description="" />} />

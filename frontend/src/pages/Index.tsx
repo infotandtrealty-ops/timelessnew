@@ -25,7 +25,7 @@ const Index = () => {
         <WhyChooseUs />
         <BeforeAfterResults />
         <FAQ />
-        <BlogSection /> {/* Blog preview section on home page */}
+        <BlogSection />
         <About />
         <Footer />
       </main>
