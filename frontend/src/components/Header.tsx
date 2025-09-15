@@ -334,10 +334,54 @@ const Header = () => {
                   )}
                 </div>
               ))}
+
+              {/* Desktop Profile shortcut when user exists */}
+              {user && (
+                <Link to="/account/profile" className="text-sm text-luxury-dark hover:text-luxury-gold">My Account</Link>
+              )}
             </div>
 
-            {/* Mobile menu button */}
-            <div className="lg:hidden">
+            {/* Mobile actions */}
+            <div className="lg:hidden flex items-center gap-2">
+              {user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button className="flex items-center justify-center w-9 h-9 rounded-full border">
+                      <img src="/logo-1.png" alt={user.name} className="w-8 h-8 rounded-full object-cover" />
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-56">
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link to="/account/profile">Profile</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/cart">Add to Cart</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/orders">Orders</Link>
+                    </DropdownMenuItem>
+                    {user.role === "admin" && (
+                      <DropdownMenuItem asChild>
+                        <Link to="/admin/dashboard">Admin Dashboard</Link>
+                      </DropdownMenuItem>
+                    )}
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link to="/logout">Logout</Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link to="/login">
+                  <Button variant="luxury" size="icon">
+                    {/* simple avatar placeholder */}
+                    <img src="/logo-1.png" alt="Login" className="w-6 h-6 rounded-full" />
+                  </Button>
+                </Link>
+              )}
+
               <Button
                 variant="ghost"
                 size="icon"

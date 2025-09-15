@@ -40,6 +40,8 @@ import CartPage from "./pages/account/CartPage";
 import ChangePasswordPage from "./pages/account/ChangePasswordPage";
 import Checkout from "./pages/Checkout";
 import Logout from "./pages/Logout";
+import BookAppointment from "./pages/BookAppointment";
+import PermanentMakeupServices from "./pages/PermanentMakeupServices";
 
 
 
@@ -56,6 +58,7 @@ const App = () => (
       <Routes>
           {/* Home Page */}
           <Route path="/" element={<Index />} />
+          <Route path="/book-appointment" element={<BookAppointment />} />
 
           {/* Blog Page */}
           <Route path="/blog" element={<Blog />} />
@@ -69,6 +72,7 @@ const App = () => (
 
 
         
+
 
 
 
@@ -88,6 +92,7 @@ const App = () => (
         
         
           <Route path="/treatments" element={<Treatments />} />
+          <Route path="/permanent-makeup" element={<PermanentMakeupServices />} />
 
         
       
@@ -188,8 +193,8 @@ const App = () => (
           <Route path="/services/dentistry/gum-depigmentation" element={<IndividualServicePage />} />
           <Route path="/services/dentistry/root-canal" element={<IndividualServicePage />} />
           <Route path="/services/dentistry/tooth-colored-fillings" element={<IndividualServicePage />} />
-          <Route path="/services/dentistry/oral-cancer" element={<IndividualServicePage />} />
-        
+          <Route path="/services/dentistry/oral-cancer" element={<IndividualServicePage />} /> 
+
           {/* Media Pages */}
           <Route path="/media/blogs" element={<MediaPage />} />
           <Route path="/media/gallery" element={<MediaPage />} />
@@ -218,28 +223,6 @@ const App = () => (
           {/* Admin Routes (protected) */}
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/leads" element={<AdminLeads />} />
-
-{/* 
-          <Route element={<RequireAdmin />}>
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            <Route path="/admin/leads" element={<AdminLeads />} />
-          </Route> */}
-
-
-
-
-          {/* Clinics Pages */}
-          <Route path="/clinics" element={<ClinicsPage />} />
-          <Route path="/clinics/amritsar" element={<ClinicsPage />} />
-          <Route path="/clinics/gurgaon" element={<ClinicsPage />} />
-          <Route path="/clinics/jammu" element={<ClinicsPage />} />
-
-          {/* Shop Pages */}
-          <Route path="/shop" element={<ShopPage />} />
-          <Route path="/shop/permanent-makeup" element={<ShopPage />} />
-          <Route path="/shop/cosmetology" element={<ShopPage />} />
-          <Route path="/shop/facial-aesthetics" element={<ShopPage />} />
-          <Route path="/shop/product/:id" element={<ProductDetail />} />
 
           {/* Dynamic Service Pages (Legacy) */}
           <Route path="/services/:slug" element={<ServicePage title="" description="" />} />

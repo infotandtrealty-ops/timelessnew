@@ -32,20 +32,7 @@ mongoose
     console.error("MongoDB connection error:", err.message);
   });
 
-// Lead schema
-const leadSchema = new mongoose.Schema(
-  {
-    firstName: { type: String, trim: true },
-    lastName: { type: String, trim: true },
-    email: { type: String, trim: true },
-    phone: { type: String, trim: true },
-    service: { type: String, trim: true },
-    message: { type: String, trim: true },
-  },
-  { timestamps: true }
-);
-
-const Lead = mongoose.models.Lead || mongoose.model("Lead", leadSchema);
+const Lead = require("./models/Lead");
 
 // Routes
 app.get("/api/health", (_req, res) => {
@@ -54,7 +41,17 @@ app.get("/api/health", (_req, res) => {
 
 app.post("/api/leads", async (req, res) => {
   try {
-    const { firstName, lastName, email, phone, service, message } = req.body || {};
+    const { name, firstName: fn, lastName: ln, email, phone, service, message } = req.body || {};
+    let firstName = fn;
+    let lastName = ln;
+    if (name && (!firstName || firstName.length === 0)) {
+      const parts = String(name).trim().split(/\s+/);
+      firstName = parts[0] || "";
+      lastName = parts.slice(1).join(" ");
+    }
+    if (!firstName || !phone) {
+      return res.status(400).json({ error: "firstName and phone are required" });
+    }
     const lead = await Lead.create({ firstName, lastName, email, phone, service, message });
     res.status(201).json(lead);
   } catch (err) {
@@ -79,6 +76,9 @@ app.use("/api/admin", require("./routes/admin"));
 
 // Order routes
 app.use("/api/orders", require("./routes/orders"));
+
+// Appointments API
+app.use("/api/appointments", require("./routes/appointments"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
