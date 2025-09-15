@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import CoursePage from "./pages/CoursePage";
 import CourseIndex from "./pages/CourseIndex";
+import CoursePurchase from "./pages/CoursePurchase";
 import PermanentMakeupPage from "./pages/PermanentMakeupPage";
 import CosmetologyPage from "./pages/CosmetologyPage";
 import FacialAestheticsPage from "./pages/FacialAestheticsPage";
@@ -26,15 +27,18 @@ import ShopPage from "./pages/ShopPage";
 import DemoRoutes from "./pages/DemoRoutes";
 import TestRoute from "./pages/TestRoute";
 import AdminLeads from "./pages/AdminLeads";
+import AdminDashboard from "./pages/AdminDashboard";
 import Login from "./pages/Login";
 import AboutUs from "./pages/AboutUs";
 import ProductDetail from "./pages/ProductDetail";
 import Signup from "./pages/Signup";
 import RequireAuth from "@/components/RequireAuth";
+import RequireAdmin from "@/components/RequireAdmin";
 import ProfilePage from "./pages/account/ProfilePage";
 import OrdersPage from "./pages/account/OrdersPage";
 import CartPage from "./pages/account/CartPage";
 import ChangePasswordPage from "./pages/account/ChangePasswordPage";
+import Checkout from "./pages/Checkout";
 import Logout from "./pages/Logout";
 
 
@@ -78,6 +82,9 @@ const App = () => (
           <Route path="/courses/fellowship" element={<FellowshipCoursesPage />} />
           {/* Fallback for nested specific course items */}
           <Route path="/courses/*" element={<CoursePage />} />
+          
+          {/* Course Purchase */}
+          <Route path="/course/purchase/:courseId" element={<CoursePurchase />} />
         
         
           <Route path="/treatments" element={<Treatments />} />
@@ -205,14 +212,16 @@ const App = () => (
           <Route path="/account/profile" element={<ProfilePage />} />
           <Route path="/orders" element={<OrdersPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/account/change-password" element={<ChangePasswordPage />} />
 
-          {/* Admin Leads (protected) */}
+          {/* Admin Routes (protected) */}
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/leads" element={<AdminLeads />} />
 
-
-          
-          {/* <Route element={<RequireAuth />}>
+{/* 
+          <Route element={<RequireAdmin />}>
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/leads" element={<AdminLeads />} />
           </Route> */}
 

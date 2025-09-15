@@ -235,6 +235,11 @@ const Header = () => {
                     <DropdownMenuItem asChild>
                       <Link to="/orders">Orders</Link>
                     </DropdownMenuItem>
+                    {user.role === "admin" && (
+                      <DropdownMenuItem asChild>
+                        <Link to="/admin/dashboard">Admin Dashboard</Link>
+                      </DropdownMenuItem>
+                    )}
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
                       <Link to="/logout">Logout</Link>

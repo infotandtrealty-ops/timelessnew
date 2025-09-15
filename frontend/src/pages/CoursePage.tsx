@@ -1,11 +1,12 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Users, Award, BookOpen, Star, CheckCircle } from "lucide-react";
+import { Clock, Users, Award, BookOpen, Star, CheckCircle, ShoppingCart } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useAuth } from "@/hooks/useAuth";
 
 
 
@@ -27,6 +28,8 @@ interface CourseData {
 
 const CoursePage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user } = useAuth();
   const [courseData, setCourseData] = useState<CourseData | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -1090,7 +1093,21 @@ const CoursePage = () => {
                   <span className="text-luxury-muted">Price:</span>
                   <span className="text-2xl font-bold text-luxury-gold">{courseData.price}</span>
                 </div>
-                <Button className="w-full" size="lg">
+                <Button 
+                  className="w-full" 
+                  size="lg"
+                  onClick={() => {
+                    if (!user) {
+                      navigate("/login");
+                    } else {
+                      // Extract course ID from the current path
+                      const pathSegments = location.pathname.split('/').filter(Boolean);
+                      const coursePath = pathSegments.slice(1).join('/');
+                      navigate(`/course/purchase/${coursePath}`);
+                    }
+                  }}
+                >
+                  <ShoppingCart className="h-4 w-4 mr-2" />
                   Enroll Now
                 </Button>
                 <Button variant="outline" className="w-full">

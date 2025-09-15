@@ -45,7 +45,7 @@ const leadSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Lead = mongoose.model("Lead", leadSchema);
+const Lead = mongoose.models.Lead || mongoose.model("Lead", leadSchema);
 
 // Routes
 app.get("/api/health", (_req, res) => {
@@ -73,6 +73,12 @@ app.get("/api/leads", async (_req, res) => {
 
 // Auth routes
 app.use("/api/auth", require("./routes/auth"));
+
+// Admin routes
+app.use("/api/admin", require("./routes/admin"));
+
+// Order routes
+app.use("/api/orders", require("./routes/orders"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
