@@ -224,6 +224,23 @@ const App = () => (
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/leads" element={<AdminLeads />} />
 
+
+
+
+           {/* Clinics Pages */}
+           <Route path="/clinics" element={<ClinicsPage />} />
+          <Route path="/clinics/amritsar" element={<ClinicsPage />} />
+          <Route path="/clinics/gurgaon" element={<ClinicsPage />} />
+          <Route path="/clinics/jammu" element={<ClinicsPage />} />
+
+          {/* Shop Pages */}
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/shop/permanent-makeup" element={<ShopPage />} />
+          <Route path="/shop/cosmetology" element={<ShopPage />} />
+          <Route path="/shop/facial-aesthetics" element={<ShopPage />} />
+
+
+
           {/* Dynamic Service Pages (Legacy) */}
           <Route path="/services/:slug" element={<ServicePage title="" description="" />} />
 
