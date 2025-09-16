@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { motion } from "framer-motion";
 
 interface ResultItem {
   id: number;
@@ -8,26 +9,10 @@ interface ResultItem {
 
 const BeforeAfterResults: React.FC = () => {
   const results: ResultItem[] = [
-    {
-      id: 1,
-      title: "Lip Filler",
-      image: "/src/assets/before-after/1.webp",
-    },
-    {
-      id: 2,
-      title: "Full Face Lift",
-      image: "/src/assets/before-after/2.webp",
-    },
-    {
-      id: 3,
-      title: "Permanent Eyebrows",
-      image: "/src/assets/before-after/3.webp",
-    },
-    {
-      id: 4,
-      title: "Chin Filler",
-      image: "/src/assets/before-after/4.webp",
-    },
+    { id: 1, title: "Lip Filler", image: "/src/assets/before-after/1.webp" },
+    { id: 2, title: "Full Face Lift", image: "/src/assets/before-after/2.webp" },
+    { id: 3, title: "Permanent Eyebrows", image: "/src/assets/before-after/3.webp" },
+    { id: 4, title: "Chin Filler", image: "/src/assets/before-after/4.webp" },
     // Add more items as needed
   ];
 
@@ -64,24 +49,33 @@ const BeforeAfterResults: React.FC = () => {
   }, []);
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#FAF8F6]">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900">
-            BEFORE & AFTER RESULTS
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8 text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold uppercase text-[#3B2F2F] tracking-wide">
+            Before & After Results
           </h2>
-        </div>
+          <span className="block w-20 h-1 bg-[#D4AF37] mx-auto mt-2 rounded"></span>
+        </motion.div>
 
         {/* Carousel */}
         <div
           id="results-carousel"
           className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth justify-center"
-          >
+        >
           {results.map((item) => (
-            <div
+            <motion.div
               key={item.id}
-              className="flex-shrink-0 w-[250px] bg-white rounded-lg shadow-md overflow-hidden snap-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: item.id * 0.2 }}
+              className="flex-shrink-0 w-[250px] bg-white rounded-xl shadow-xl overflow-hidden snap-center transform transition duration-500 hover:scale-105 hover:shadow-2xl border-2 border-[#D4AF37]"
             >
               <div className="h-56 w-full overflow-hidden">
                 <img
@@ -91,14 +85,14 @@ const BeforeAfterResults: React.FC = () => {
                 />
               </div>
               <div className="p-3 text-center">
-                <p className="text-gray-800 font-medium">{item.title}</p>
+                <p className="text-[#3B2F2F] font-playfair font-semibold">{item.title}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default BeforeAfterResults ;
+export default BeforeAfterResults;

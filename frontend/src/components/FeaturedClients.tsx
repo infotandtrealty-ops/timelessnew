@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
-// import all client logos (1–10.jpg)
+// import all client logos
 import img1 from "@/assets/clients/1.jpg";
 import img2 from "@/assets/clients/2.jpg";
 import img3 from "@/assets/clients/3.jpg";
@@ -13,63 +14,58 @@ import img9 from "@/assets/clients/9.jpg";
 import img10 from "@/assets/clients/10.jpg";
 
 const FeaturedClients = () => {
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const logos = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    let scrollAmount = 0;
+    if (!scrollContainer) return;
 
-    const scrollStep = () => {
-      if (scrollContainer) {
-        scrollAmount += 1;
-        scrollContainer.scrollLeft = scrollAmount;
-        if (scrollAmount >= scrollContainer.scrollWidth / 2) {
-          scrollAmount = 0; // reset for infinite loop
-        }
+    let scrollAmount = 0;
+    const totalWidth = scrollContainer.scrollWidth / 2; // because we duplicated logos
+
+    const step = () => {
+      scrollAmount += 0.5; // slower, smoother
+      scrollContainer.scrollLeft = scrollAmount;
+
+      if (scrollAmount >= totalWidth) {
+        scrollAmount = 0; // reset without shaking
       }
+
+      requestAnimationFrame(step); // smoother than setInterval
     };
 
-    const interval = setInterval(scrollStep, 30); // speed control
-    return () => clearInterval(interval);
+    const animation = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animation);
   }, []);
 
-  // all client logos
-  const logos = [
-    img1,
-    img2,
-    img3,
-    img4,
-    img5,
-    img6,
-    img7,
-    img8,
-    img9,
-    img10,
-  ];
-
   return (
-    <section className="py-12 bg-white">
-      <h2 className="text-center text-2xl md:text-3xl font-bold text-luxury-dark mb-8">
-        We Are Featured
-      </h2>
+    <section className="py-16 bg-[#FAF8F6]">
+      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="mb-12 text-center"
+      >
+        <h2 className="text-3xl md:text-4xl font-playfair font-bold uppercase text-[#3B2F2F] tracking-wide">
+          We Are Featured
+        </h2>
+        <span className="block w-20 h-1 bg-[#D4AF37] mx-auto mt-2 rounded"></span>
+      </motion.div>
 
+      {/* Smooth Carousel */}
       <div
         ref={scrollRef}
-        className="flex overflow-x-hidden space-x-12"
-        style={{ scrollBehavior: "smooth" }}
+        className="flex overflow-x-hidden space-x-12 items-center"
       >
-        {/* Duplicate logos for infinite effect */}
         {[...logos, ...logos].map((logo, index) => (
-          <div
+          <motion.div
             key={index}
-            className="flex-shrink-0 w-120 h-80 flex items-center justify-center"
+            className="flex-shrink-0 w-40 h-32 md:w-48 md:h-40 flex items-center justify-center bg-white rounded-xl shadow-md border-2 border-[#D4AF37] p-4 transform transition duration-500 hover:scale-105 hover:shadow-xl"
           >
-            <img
-              src={logo}
-              alt={`Client ${index + 1}`}
-              className="h-full object-contain"
-            />
-          </div>
+            <img src={logo} alt={`Client ${index + 1}`} className="h-full object-contain" />
+          </motion.div>
         ))}
       </div>
     </section>

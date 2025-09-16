@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 interface Blog {
   id: number;
@@ -36,48 +37,56 @@ const BlogSection: React.FC = () => {
   const navigate = useNavigate();
 
   const handleReadMore = (id: number) => {
-    navigate(`/blogs/${id}`); // blog detail page route
+    navigate(`/blogs/${id}`);
   };
 
   return (
-    <div className="py-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#FAF8F6]">
+      <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <h2 className="text-2xl font-bold text-gray-900 mb-8">
-          Our Latest Blog
-        </h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold uppercase text-[#3B2F2F] tracking-wide">
+            Our Latest Blog
+          </h2>
+          <span className="block w-20 h-1 bg-[#D4AF37] mx-auto mt-2 rounded"></span>
+        </div>
 
         {/* Blog Cards */}
         <div className="grid md:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
-            <div
+          {blogs.map((blog, index) => (
+            <motion.div
               key={blog.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transform transition duration-300 hover:scale-105 border-2 border-[#D4AF37]"
             >
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+              <div className="h-48 overflow-hidden rounded-t-2xl">
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-playfair font-bold text-[#3B2F2F] mb-2 line-clamp-2">
                   {blog.title}
                 </h3>
-                <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                <p className="text-[#555555] text-sm mb-4 line-clamp-2 font-lato">
                   {blog.description}
                 </p>
                 <button
                   onClick={() => handleReadMore(blog.id)}
-                  className="text-sm font-medium text-yellow-600 hover:text-yellow-700"
+                  className="text-sm font-medium text-[#D4AF37] hover:text-[#B8912C] transition-colors duration-200"
                 >
                   Read More →
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
