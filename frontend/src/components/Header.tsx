@@ -201,7 +201,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-background shadow-subtle sticky top-0 z-50">
+    <header className="bg-neutral-100 shadow-subtle sticky top-0 z-50">
       <div className="container mx-auto px-4">
         {/* Top bar with contact info */}
         <div className="border-b border-border py-2 text-sm">
