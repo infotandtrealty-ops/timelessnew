@@ -31,6 +31,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Login from "./pages/Login";
 import AboutUs from "./pages/AboutUs";
 import ProductDetail from "./pages/ProductDetail";
+import ProductPage from "./pages/ProductPage";
+
 import Signup from "./pages/Signup";
 import RequireAuth from "@/components/RequireAuth";
 import RequireAdmin from "@/components/RequireAdmin";
@@ -239,6 +241,7 @@ const App = () => (
           <Route path="/shop/cosmetology" element={<ShopPage />} />
           <Route path="/shop/facial-aesthetics" element={<ShopPage />} />
 
+          <Route path="/shop/product/:id" element={<ProductDetail />} />
 
 
           {/* Dynamic Service Pages (Legacy) */}
