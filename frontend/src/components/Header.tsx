@@ -183,7 +183,7 @@ const Header = () => {
         { label: "Facial Aesthetics", link: "/shop/facial-aesthetics" }
       ]
     },
-    { label: "Academy", link: "/academy" },
+    // { label: "Academy", link: "/academy" },
     { label: "Contact Us", link: "/contact" },
   ];
 

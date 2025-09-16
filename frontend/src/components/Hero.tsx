@@ -117,13 +117,20 @@ const Hero = () => {
                   {slide.text}
                 </p>
                 <Button
-                  variant="luxury"
-                  size="lg"
-                  className="font-semibold shadow-lg hover:scale-105 transition-transform"
-                  onClick={() => (window.location.href = "/book-appointment")}
-                >
-                  {slide.button}
-                </Button>
+  variant="luxury"
+  className="
+    px-1 py-2 text-sm 
+    md:px-1 md:py-3 md:text-base
+    h-10 w-44 font-semibold rounded-xl
+    shadow-lg hover:scale-105 transition-transform
+  "
+  onClick={() => (window.location.href = "/book-appointment")}
+>
+  {slide.button}
+</Button>
+
+
+
               </div>
 
               {/* Right Side Lead Form (hidden on mobile) */}
