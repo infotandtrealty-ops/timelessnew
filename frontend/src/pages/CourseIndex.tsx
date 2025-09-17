@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import FAQ from "@/components/FAQ";
 import BlogSection from "@/components/BlogSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import { motion } from "framer-motion";
+
 
 const CourseIndex: React.FC = () => {
   const courses = [
@@ -56,59 +58,46 @@ const CourseIndex: React.FC = () => {
 
 
 
-{/* Academy Intro */}
-<div className="container mx-auto px-6 py-20">
-  <div className="max-w-5xl mx-auto text-center mb-20">
-    {/* Heading */}
-    <h2 className="text-4xl md:text-5xl font-playfair font-bold text-luxury-dark mb-6">
-      Welcome to <span className="text-luxury-gold">Timeless Academy</span>
-    </h2>
 
-    {/* Description */}
-    <p className="text-lg md:text-xl text-luxury-muted leading-relaxed mb-10">
-      <span className="font-semibold text-luxury-gold">
-        Timeless Aesthetics Academy
-      </span>{" "}
-      is a <span className="italic">one-of-a-kind training institute</span> for
-      professional aesthetic courses. We offer{" "}
-      <span className="font-medium">both online and in-person</span> modules,
-      designed to provide a world-class learning experience.
-      <br />
-      <br />
-      Our curriculum is carefully built across{" "}
-      <span className="font-semibold">three major segments</span> of the
-      aesthetics industry — covering the entire spectrum of{" "}
-      <span className="font-semibold">modern treatment lines</span> practiced
-      globally.
-    </p>
+{/* About Section */}
+<section className="bg-[#FAF8F6] py-20">
+<div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+{/* Left Image */}
+<motion.img
+src="/images/goo.jpg"
+alt="About Course"
+initial={{ opacity: 0, x: -50 }}
+whileInView={{ opacity: 1, x: 0 }}
+transition={{ duration: 0.8 }}
+className="rounded-xl shadow-xl border-2 border-[#D4AF37] hover:scale-105 transition-transform duration-300"
+/>
 
-    {/* Sub-heading */}
-    <h3 className="text-2xl md:text-3xl font-semibold text-luxury-dark mb-8">
-      ✨ Our Signature Courses
-    </h3>
-
-    {/* Courses List - Elegant Card Style */}
-    <div className="grid sm:grid-cols-3 gap-6">
-      {[
-        { name: "Permanent Makeup" },
-        { name: "Facial Aesthetics" },
-        { name: "Modern Cosmetology" },
-      ].map((course, index) => (
-        <div
-          key={index}
-          className="bg-gradient-to-br from-white to-luxury-cream rounded-xl shadow-subtle border border-gray-200 p-6 hover:shadow-luxury transition duration-300 group"
-        >
-          <h4 className="text-lg md:text-xl font-semibold text-luxury-dark group-hover:text-luxury-gold transition">
-            {course.name}
-          </h4>
-          <div className="mt-2 h-0.5 w-12 bg-luxury-gold mx-auto opacity-70 group-hover:w-20 transition-all duration-300"></div>
-        </div>
-      ))}
-    </div>
-  </div>
+{/* Right Content */}
+<motion.div
+initial={{ opacity: 0, x: 50 }}
+whileInView={{ opacity: 1, x: 0 }}
+transition={{ duration: 0.8 }}
+className="text-left"
+>
+<h2 className="text-4xl md:text-5xl font-playfair font-bold text-[#3B2F2F] mb-4 uppercase tracking-wide">
+About the <span className="text-[#D4AF37]">Course</span>
+</h2>
+<span className="block w-16 h-1 bg-[#D4AF37] mt-2 mb-6 rounded"></span>
+<p className="text-lg text-[#555555] font-lato leading-relaxed mb-6">
+Learn industry-standard techniques in micropigmentation and brow,
+lip, and scalp artistry. Our expert-designed curriculum ensures
+hands-on training and professional certification for a successful
+career in permanent makeup.
+</p>
+<Link
+to="/contact"
+className="inline-block px-6 py-3 border-2 border-[#D4AF37] text-[#D4AF37] rounded-full font-medium font-lato tracking-wide hover:bg-[#D4AF37] hover:text-white hover:scale-105 transition-all duration-300"
+>
+Enroll Now
+</Link>
+</motion.div>
 </div>
-
-
+</section>
 
 
         {/* Course Cards */}

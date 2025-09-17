@@ -294,7 +294,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Beginner",
             category: "Permanent Makeup",
             price: "₹40,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Basic SMP techniques",
               "Hair loss understanding",
@@ -334,7 +334,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Intermediate",
             category: "Permanent Makeup",
             price: "₹50,000",
-            image: "/assets/courses/permanent-cosmetology.jpg", // 👈 yeh add kar
+            image: "/images/goo.jpg",
             features: [
               "Laser technology understanding",
               "Skin type analysis",
@@ -377,7 +377,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Intermediate",
             category: "Permanent Makeup",
             price: "₹45,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Skin analysis techniques",
               "Treatment protocols",
@@ -418,7 +418,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Advanced",
             category: "Cosmetology",
             price: "₹35,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Advanced peel techniques",
               "Skin type analysis",
@@ -458,7 +458,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Professional",
             category: "Cosmetology",
             price: "₹1,20,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Complete cosmetology training",
               "Advanced treatment techniques",
@@ -499,7 +499,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Professional",
             category: "Cosmetology",
             price: "₹75,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Professional skin care training",
               "Facial treatment techniques",
@@ -577,7 +577,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Beginner",
             category: "Cosmetology",
             price: "₹25,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Chemical peel basics",
               "Safety protocols",
@@ -618,7 +618,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Master's",
             category: "Facial Aesthetics",
             price: "₹2,50,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Complete facial aesthetics training",
               "Advanced injection techniques",
@@ -658,7 +658,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Advanced",
             category: "Facial Aesthetics",
             price: "₹60,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Advanced lipolytic techniques",
               "Anatomy and safety protocols",
@@ -697,7 +697,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Advanced",
             category: "Facial Aesthetics",
             price: "₹45,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Non-surgical nose correction",
               "Advanced filler techniques",
@@ -736,7 +736,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Advanced",
             category: "Facial Aesthetics",
             price: "₹50,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Advanced scar treatment techniques",
               "Multiple treatment modalities",
@@ -775,7 +775,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Advanced",
             category: "Facial Aesthetics",
             price: "₹40,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Plasma pen technology training",
               "Advanced treatment techniques",
@@ -814,7 +814,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Advanced",
             category: "Facial Aesthetics",
             price: "₹45,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Under-eye anatomy and aging",
               "Advanced treatment techniques",
@@ -853,7 +853,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Advanced",
             category: "Facial Aesthetics",
             price: "₹40,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Advanced lip filler techniques",
               "Anatomy and safety protocols",
@@ -892,7 +892,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Post Graduate",
             category: "Facial Aesthetics",
             price: "₹1,80,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Complete facial aesthetics training",
               "Advanced injection techniques",
@@ -932,7 +932,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Intermediate",
             category: "Facial Aesthetics",
             price: "₹45,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Basic lipolytic techniques",
               "Anatomy and safety",
@@ -972,7 +972,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Fellowship",
             category: "Fellowship Courses",
             price: "₹2,00,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Complete permanent makeup training",
               "Advanced cosmetology techniques",
@@ -1011,7 +1011,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Fellowship",
             category: "Fellowship Courses",
             price: "₹3,50,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Complete aesthetic training",
               "All three specialties covered",
@@ -1050,7 +1050,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Fellowship",
             category: "Fellowship Courses",
             price: "₹2,80,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Advanced facial aesthetics training",
               "All injection techniques",
@@ -1089,7 +1089,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Fellowship",
             category: "Fellowship Courses",
             price: "₹3,00,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Complete permanent makeup training",
               "Advanced cosmetology",
@@ -1128,7 +1128,7 @@ image: "/images/dr.png", // replace with actual image
             level: "Fellowship",
             category: "Fellowship Courses",
             price: "₹4,50,000",
-            image: "/assets/courses/permanent-cosmetology.jpg",
+            image: "/images/goo.jpg",
             features: [
               "Complete aesthetic training",
               "All specialties covered",
@@ -1235,9 +1235,7 @@ image: "/images/dr.png", // replace with actual image
             <h1 className="text-4xl md:text-6xl font-bold mb-6 font-playfair uppercase tracking-wide">
               {courseData.title}
             </h1>
-            <p className="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto">
-              {courseData.description}
-            </p>
+ 
             <div className="flex flex-wrap justify-center gap-6 text-lg mt-8">
               <span className="flex items-center gap-2">
                 <Clock className="h-5 w-5" /> {courseData.duration}
