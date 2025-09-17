@@ -53,30 +53,63 @@ const CourseIndex: React.FC = () => {
 
       {/* Academy Intro */}
       <div className="container mx-auto px-6 py-20">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-serif font-bold text-gray-900 mb-6">
-            Timeless Academy
-          </h2>
-          <p className="text-gray-600 leading-relaxed text-lg">
-            Timeless Aesthetics Academy is a{" "}
-            <span className="font-semibold text-yellow-800">
-              one-of-a-kind training institute
-            </span>{" "}
-            for professional aesthetic courses. Our programs include both{" "}
-            <span className="font-medium">online and in-person</span> modules.
-            Furthermore, we have developed a curriculum in three major segments
-            of the aesthetics industry covering the entirety of current treatment
-            lines available in the world.
-          </p>
-          <h3 className="text-2xl font-semibold text-gray-800 mt-10 mb-3">
-            Our courses include:
-          </h3>
-          <ul className="text-gray-700 space-y-2 text-lg">
-            <li>✨ Permanent Makeup</li>
-            <li>✨ Facial Aesthetics</li>
-            <li>✨ Modern Cosmetology</li>
-          </ul>
+
+
+
+{/* Academy Intro */}
+<div className="container mx-auto px-6 py-20">
+  <div className="max-w-5xl mx-auto text-center mb-20">
+    {/* Heading */}
+    <h2 className="text-4xl md:text-5xl font-playfair font-bold text-luxury-dark mb-6">
+      Welcome to <span className="text-luxury-gold">Timeless Academy</span>
+    </h2>
+
+    {/* Description */}
+    <p className="text-lg md:text-xl text-luxury-muted leading-relaxed mb-10">
+      <span className="font-semibold text-luxury-gold">
+        Timeless Aesthetics Academy
+      </span>{" "}
+      is a <span className="italic">one-of-a-kind training institute</span> for
+      professional aesthetic courses. We offer{" "}
+      <span className="font-medium">both online and in-person</span> modules,
+      designed to provide a world-class learning experience.
+      <br />
+      <br />
+      Our curriculum is carefully built across{" "}
+      <span className="font-semibold">three major segments</span> of the
+      aesthetics industry — covering the entire spectrum of{" "}
+      <span className="font-semibold">modern treatment lines</span> practiced
+      globally.
+    </p>
+
+    {/* Sub-heading */}
+    <h3 className="text-2xl md:text-3xl font-semibold text-luxury-dark mb-8">
+      ✨ Our Signature Courses
+    </h3>
+
+    {/* Courses List - Elegant Card Style */}
+    <div className="grid sm:grid-cols-3 gap-6">
+      {[
+        { name: "Permanent Makeup" },
+        { name: "Facial Aesthetics" },
+        { name: "Modern Cosmetology" },
+      ].map((course, index) => (
+        <div
+          key={index}
+          className="bg-gradient-to-br from-white to-luxury-cream rounded-xl shadow-subtle border border-gray-200 p-6 hover:shadow-luxury transition duration-300 group"
+        >
+          <h4 className="text-lg md:text-xl font-semibold text-luxury-dark group-hover:text-luxury-gold transition">
+            {course.name}
+          </h4>
+          <div className="mt-2 h-0.5 w-12 bg-luxury-gold mx-auto opacity-70 group-hover:w-20 transition-all duration-300"></div>
         </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+
+
 
         {/* Course Cards */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
