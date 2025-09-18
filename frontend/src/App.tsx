@@ -85,7 +85,7 @@ const App = () => (
           <Route path="/courses/permanent-makeup" element={<PermanentMakeupPage />} />
           <Route path="/courses/cosmetology" element={<CosmetologyPage />} />
           <Route path="/courses/facial-aesthetics" element={<FacialAestheticsPage />} />
-          <Route path="/courses/fellowship" element={<FellowshipCoursesPage />} />
+          <Route path="/courses/Dentistry" element={<FellowshipCoursesPage />} />
           {/* Fallback for nested specific course items */}
           <Route path="/courses/*" element={<CoursePage />} />
           
