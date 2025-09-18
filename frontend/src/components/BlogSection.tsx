@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 interface Blog {
@@ -7,6 +6,7 @@ interface Blog {
   title: string;
   description: string;
   image: string;
+  link: string;
 }
 
 const blogs: Blog[] = [
@@ -16,6 +16,7 @@ const blogs: Blog[] = [
     description:
       "What is Profhilo? Profhilo is a next-generation injectable treatment design...",
     image: "/src/assets/blogs/1.jfif",
+    link: "https://www.timelessaesthetics.in/blogs/from-botox-to-laser-hair-reduction-explore-our-range-of-services",
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ const blogs: Blog[] = [
     description:
       "Understanding PDRN and its role in skin rejuvenation in aesthetic medicine...",
     image: "/src/assets/blogs/2.jfif",
+    link: "https://www.timelessaesthetics.in/blogs/rejuvenate-your-skin-and-body-with-wellness-drips",
   },
   {
     id: 3,
@@ -30,16 +32,11 @@ const blogs: Blog[] = [
     description:
       "In today’s fast-paced world, aesthetic treatments have become more than...",
     image: "/src/assets/blogs/3.jfif",
+    link: "https://www.timelessaesthetics.in/blogs/combat-aging-latest-trends-in-face-lift-treatments",
   },
 ];
 
 const BlogSection: React.FC = () => {
-  const navigate = useNavigate();
-
-  const handleReadMore = (id: number) => {
-    navigate(`/blogs/${id}`);
-  };
-
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#FAF8F6]">
       <div className="max-w-7xl mx-auto">
@@ -75,12 +72,14 @@ const BlogSection: React.FC = () => {
                 <p className="text-[#555555] text-sm mb-4 line-clamp-2 font-lato">
                   {blog.description}
                 </p>
-                <button
-                  onClick={() => handleReadMore(blog.id)}
+                <a
+                  href={blog.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm font-medium text-[#D4AF37] hover:text-[#B8912C] transition-colors duration-200"
                 >
                   Read More →
-                </button>
+                </a>
               </div>
             </motion.div>
           ))}

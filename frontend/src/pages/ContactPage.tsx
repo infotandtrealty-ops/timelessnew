@@ -105,19 +105,24 @@ const ContactPage = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
 
-      {/* Hero Section */}
-      <div className="relative text-white py-20 bg-gradient-to-r from-luxury-gold to-luxury-dark">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Contact Us
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8">
-              Get in touch with us for consultations, appointments, or any questions about our services
-            </p>
-          </div>
-        </div>
-      </div>
+{/* Hero Section */}
+<div
+  className="relative text-white py-20 bg-center bg-cover bg-no-repeat"
+  style={{ backgroundImage: "url('/images/contact.jpg')" }}
+>
+  <div className="absolute inset-0 bg-black/50"></div> {/* overlay for readability */}
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="max-w-4xl mx-auto text-center">
+      <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        Contact Us
+      </h1>
+      <p className="text-xl md:text-2xl text-gray-200 mb-8">
+        Get in touch with us for consultations, appointments, or any questions about our services
+      </p>
+    </div>
+  </div>
+</div>
+
 
       {/* Contact Information */}
       <div className="container mx-auto px-4 py-16">

@@ -162,7 +162,7 @@ const Header = () => {
     {
       label: "Media",
       submenu: [
-        { label: "Blogs", link: "/media/blogs" },
+        // { label: "Blogs", link: "/media/blogs" },
         { label: "Gallery", link: "/media/gallery" }
       ]
     },
@@ -175,14 +175,14 @@ const Header = () => {
         { label: "Jammu", link: "/clinics/jammu" }
       ]
     },
-    {
-      label: "Shop",
-      submenu: [
-        { label: "Permanent Makeup", link: "/shop/permanent-makeup" },
-        { label: "Cosmetology", link: "/shop/cosmetology" },
-        { label: "Facial Aesthetics", link: "/shop/facial-aesthetics" }
-      ]
-    },
+    // {
+    //   label: "Shop",
+    //   submenu: [
+    //     { label: "Permanent Makeup", link: "/shop/permanent-makeup" },
+    //     { label: "Cosmetology", link: "/shop/cosmetology" },
+    //     { label: "Facial Aesthetics", link: "/shop/facial-aesthetics" }
+    //   ]
+    // },
     // { label: "Academy", link: "/academy" },
     { label: "Contact Us", link: "/contact" },
   ];
@@ -214,7 +214,7 @@ const Header = () => {
               <span>info@timelessaesthetics.in</span>
             </div>
             <div className="hidden md:flex items-center gap-4">
-              <Button variant="luxury-ghost" size="sm">We Are Featured</Button>
+              {/* <Button variant="luxury-ghost" size="sm">We Are Featured</Button> */}
               {user ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -248,7 +248,7 @@ const Header = () => {
                 </DropdownMenu>
               ) : (
                 <Link to="/login">
-                  <Button variant="luxury" size="sm">Login</Button>
+                  {/* <Button variant="luxury" size="sm">Login</Button> */}
                 </Link>
               )}
             </div>
