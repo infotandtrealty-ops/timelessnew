@@ -123,7 +123,6 @@ const Checkout = () => {
           orderId: orderResponse.order._id
         })
       });
-
       // Initialize Razorpay
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
