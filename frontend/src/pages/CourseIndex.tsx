@@ -26,9 +26,9 @@ const CourseIndex: React.FC = () => {
       link: "/courses/facial-aesthetics",
     },
     {
-      name: "Dentistry",
+      name: "Fellowship",
       image: "/images/goo.jpg",
-      link: "/courses/dentistry",
+      link: "/courses/fellowship",
     },
   ];
 
